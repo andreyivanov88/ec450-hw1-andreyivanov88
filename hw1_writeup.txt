@@ -1,0 +1,13 @@
+Writeup describing your implementation:
+What was your overall strategy?
+The original blink interval was set to ~ 50* 7.4ms (for the WDT handler). This was considered one unit &
+then a counter declared (unsigned int c) was created to keep track of the SOS state. In order to count:
+3 short blinks --> 3-interval pause --> 3 long blinks --> 3-interval pause -->
+3 short blinks --> long pause (now c is reset to 0 to repeat)
+
+What global variables did you use to keep track of the state of the system between WDT interrupts?
+Just a single counter declared as:
+unsigned int c;
+
+What hardware did you use and how was it connected (for this HW the answer is probably to just way which on-board LED you used)
+LED1 blinking was implemented with the mini usb connecting to the computer USB.
